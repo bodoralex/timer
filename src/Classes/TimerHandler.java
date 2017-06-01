@@ -109,6 +109,7 @@ public class TimerHandler implements Runnable {
                     break;
                 case "exit":
                     exit();
+                    break;
                 default:
                     System.err.println("Invalid statement");
             }
