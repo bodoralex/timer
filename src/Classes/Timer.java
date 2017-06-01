@@ -41,7 +41,7 @@ public class Timer implements Runnable {
 
     @Override
     public String toString() {
-        return String.format("%s = run: %s,  time: %.3g", name, running, runTime);
+        return String.format("%s = run: %s,  time: %.3g ", name, running, runTime);
     }
 
     public boolean isRunning() {
