@@ -64,6 +64,16 @@ public class TimerHandler implements Runnable {
         timers.remove(timer);
         System.out.println("Timer deleted");
     }
+    private void stopAllTheTimers(){
+        for (Thread thread : timers.values()) {
+            if(thread == null) continue;
+            thread.interrupt();
+        }
+    }
+    private void exit(){
+        stopAllTheTimers();
+        Thread.currentThread().interrupt();
+    }
 
     @Override
     public void run() {
@@ -78,6 +88,9 @@ public class TimerHandler implements Runnable {
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
+
+            if(Thread.currentThread().isInterrupted()) return; //bye
+
             if (scanner.hasNext()) {
                 String input = scanner.nextLine();
                 functionChooser(input);
@@ -95,7 +108,7 @@ public class TimerHandler implements Runnable {
                     check();
                     break;
                 case "exit":
-                    System.exit(0);
+                    exit();
                 default:
                     System.err.println("Invalid statement");
             }
