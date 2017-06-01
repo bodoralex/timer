@@ -1,6 +1,5 @@
 package main;
 
-import Classes.Timer;
 import Classes.TimerHandler;
 
 /**

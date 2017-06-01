@@ -24,7 +24,7 @@ public class Timer implements Runnable {
                 runTime += 0.01;
             } catch (InterruptedException e) {
                 running = false;
-                System.out.println(name +" paused");
+                System.out.println(name + " paused");
             }
         }
     }
@@ -33,7 +33,7 @@ public class Timer implements Runnable {
         String message = null;
         if (runTime == 0) {
             message = name + "  started";
-        } else{
+        } else {
             message = String.format("%s is resumed from %.3g seconds", name, runTime);
         }
         return message;

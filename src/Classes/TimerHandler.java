@@ -109,9 +109,10 @@ public class TimerHandler implements Runnable {
         } else if (splitted.length == 2) {
             String statement = splitted[0];
             Timer timer = null;
+            String timerName = splitted[1];
 
             if (!splitted[0].equals("create")) {
-                timer = getTimerByName(splitted[1]);
+                timer = getTimerByName(timerName);
                 if (timer == null) return;
             }
 
@@ -120,7 +121,7 @@ public class TimerHandler implements Runnable {
                     check(timer);
                     break;
                 case "create":
-                    createTimer(splitted[1]);
+                    createTimer(timerName);
                     break;
                 case "start":
                     startTimer(timer);
